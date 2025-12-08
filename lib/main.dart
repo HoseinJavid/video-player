@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:my_video_player/screens/home.dart';
@@ -22,7 +23,9 @@ void main() async {
   // SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
 
 
-  runApp(const MyApp());
+  runApp(DevicePreview(builder: (BuildContext context) { 
+    return const MyApp();
+   }));
 }
 
 class MyApp extends StatelessWidget {
@@ -31,6 +34,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
+      builder: DevicePreview.appBuilder,
       debugShowCheckedModeBanner: false,
       title: 'My Video Player',
       home: Home(),
